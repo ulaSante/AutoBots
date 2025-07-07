@@ -61,9 +61,6 @@ public class Array1Codingbat {
         }
     }
 
-    public int[] middleWay(int[] a, int[] b) {
-        int[] ab = new int[0];
-    }
 
 
 
