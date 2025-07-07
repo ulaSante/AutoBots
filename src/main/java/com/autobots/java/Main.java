@@ -66,12 +66,57 @@ public class Main {
     }
 
     public String lastTwo(String str) {
-        String predLast = str.substring(str.length() - 2);
-        String last = str.substring(str.length() - 1);
         if (str.length() >= 2) {
-            return str.concat(last).concat(predLast);
+            String predLast = str.substring(str.length() - 2, str.length() - 1);
+            String last = str.substring(str.length() - 1);
+            String withoutLastTwoLetters = str.substring(0, str.length() - 2);
+            return withoutLastTwoLetters.concat(last).concat(predLast);
         } else {
-            return str.concat(last).concat(predLast);
+            return str;
         }
     }
+
+    public boolean frontAgain(String str) {
+        String lastTwo = str.substring(str.length() - 2);
+        if(str.length() >= 2 && str.endsWith(lastTwo)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String minCat(String a, String b) {
+        int minLength = Math.min(a.length(), b.length());
+        String shortA = a.substring(a.length() - minLength);
+        String shortB = b.substring(b.length() - minLength);
+        return shortA + shortB;
+    }
+
+    public String without2(String str) {
+        if (str.length() >= 2) {
+            String withoutStr = str.substring(str.length() - 2);
+            if (str.startsWith(withoutStr)) {
+                return str.substring(2);
+            }
+        }
+        return str;
+    }
+
+    public String deFront(String str) {
+        if (str.length() >= 2 && str.startsWith("a") && str.substring(1, 2).equalsIgnoreCase("b")) {
+            return str;
+        } else if (str.startsWith("a")
+                && str.length() >= 2
+                && !str.substring(1, 2).equalsIgnoreCase("b")) {
+            String a = str.substring(0, 1);
+            return a.concat(str.substring(2));
+        } else if (str.length() >= 2 && str.substring(1, 2).equalsIgnoreCase("b")){
+            String b = str.substring(1, 2);
+            return b.concat(str.substring(2));
+        }
+        return str.length() <= 2 ? "" : str.substring(2);
+    }
+
+
+
 }
